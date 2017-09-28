@@ -1,15 +1,12 @@
 import './vendor.ts';
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Ng2Webstorage } from 'ng2-webstorage';
-
 import { EventFullSharedModule, UserRouteAccessService } from './shared';
 import { EventFullHomeModule } from './home/home.module';
 import { EventFullAdminModule } from './admin/admin.module';
 import { EventFullAccountModule } from './account/account.module';
 import { EventFullEntityModule } from './entities/entity.module';
-
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
@@ -24,6 +21,8 @@ import {
     PageRibbonComponent,
     ErrorComponent
 } from './layouts';
+import { MapsComponent } from './maps/maps.component';
+import {MapsModule} from "./maps/maps.module";
 
 @NgModule({
     imports: [
@@ -35,6 +34,7 @@ import {
         EventFullAdminModule,
         EventFullAccountModule,
         EventFullEntityModule,
+        MapsModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
