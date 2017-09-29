@@ -1,0 +1,38 @@
+<h1 class="header">Dodaj nowe wydarzenie!</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4 class="header">Wybierz lokalizację swojego wydarzenia:</h4>
+        <div class="form-group">
+            <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+                   class="form-control" #search [formControl]="searchControl">
+        </div>
+        <agm-map [latitude]="lat" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+    </div>
+
+    <div class="col-md-6">
+        <h4 class="header">Opisz swoje wydarzenie!</h4>
+
+        <h6 class="header">Wybierz rodzaj swojego wydarzenia!</h6>
+
+        <div class="btn-group-vertical">
+            <label class="btn btn-info" *ngFor="let item of events;let i=index">
+                <input type="radio" name="someName" [value]="item.label"> {{item.label}}
+            </label>
+        </div>
+
+        <h6 class="header">Opisz swoje wydarzenie!</h6>
+        <textarea class="description"></textarea>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10">
+    </div>
+    <div class="col-md-2">
+        <button title="Dodaj wydarzenie" type="button" class="btn btn-primary" (click)="submit()">
+            Zapisz wydarzenie
+        </button>
+    </div>
+</div>

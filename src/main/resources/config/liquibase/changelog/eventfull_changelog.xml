@@ -1,0 +1,32 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="1501055660317-120" author="akielbiewski" context="dev or local">
+        <createTable tableName="EVENT">
+            <column name="EVENT_ID" type="bigint">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="EVENT_NAME" type="varchar(50)"/>
+            <column name="EVENT_LOCATION" type="varchar(100)"/>
+            <column name="LOCATION_LONGITUDE" type="float"/>
+            <column name="LOCATION_LATITUDE" type="float"/>
+            <column name="EVENT_DATE" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EVENT_TYPE" type="varchar(50)"/>
+            <column name="EVENT_DESCRIPTION" type="varchar(500)"/>
+        </createTable>
+        <createIndex indexName="idx_EVENT"
+                     tableName="EVENT"
+                     unique="true">
+            <column name="EVENT_ID" type="bigint"/>
+        </createIndex>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/event.csv"
+                  separator=";"
+                  tableName="EVENT"/>
+
+    </changeSet>
+
+</databaseChangeLog>

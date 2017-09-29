@@ -1,0 +1,16 @@
+agm-map {
+    height: 700px;
+}
+
+.header {
+    padding-bottom: 20px;
+}
+
+.rbutt{
+    padding-right:  15px;
+}
+
+.description{
+    height: 30%;
+    width: 87%;
+}

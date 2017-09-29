@@ -23,6 +23,8 @@ import {
 } from './layouts';
 import { MapsComponent } from './maps/maps.component';
 import {MapsModule} from "./maps/maps.module";
+import { AddEventsComponent } from './add-events/add-events.component';
+import {AddEventsModule} from "./add-events/add-events.module";
 
 @NgModule({
     imports: [
@@ -34,7 +36,8 @@ import {MapsModule} from "./maps/maps.module";
         EventFullAdminModule,
         EventFullAccountModule,
         EventFullEntityModule,
-        MapsModule
+        MapsModule,
+        AddEventsModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [

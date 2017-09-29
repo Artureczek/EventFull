@@ -1,14 +1,14 @@
-import { Component, NgModule, OnInit, ElementRef, ViewChild, NgZone} from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
-import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import {Component, NgModule, OnInit, ElementRef, ViewChild, NgZone} from '@angular/core';
+import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserModule} from "@angular/platform-browser";
+import {AgmCoreModule, MapsAPILoader} from '@agm/core';
 
 @Component({
-    selector: 'events-map',
-    templateUrl: './maps.component.html',
-    styleUrls: ['./maps.css', 'maps.css'],
+    selector: 'jhi-add-events',
+    templateUrl: './add-events.component.html',
+    styleUrls: ['./add-events.css', 'add-events.css'],
 })
-export class MapsComponent implements OnInit {
+export class AddEventsComponent implements OnInit {
 
     zoom: number = 8;
     public searchControl: FormControl;
@@ -64,43 +64,35 @@ export class MapsComponent implements OnInit {
         console.log(`clicked the marker: ${label || index}`)
     }
 
-    mapClicked($event: any) {
-        this.markers.push({
-            lat: $event.coords.lat,
-            lng: $event.coords.lng,
-            draggable: false
-        });
+    submit(){
+
     }
 
-    markerDragEnd(m: marker, $event: MouseEvent) {
-        console.log('dragEnd', m, $event);
-    }
-
-    markers: marker[] = [
+    events: event[] = [
         {
-            lat: 51.673858,
-            lng: 7.815982,
-            label: 'A',
-            draggable: true
+            value: '1',
+            label: 'impreza'
         },
         {
-            lat: 51.373858,
-            lng: 7.215982,
-            label: 'B',
-            draggable: false
+            value: '2',
+            label: 'koncert'
         },
         {
-            lat: 51.723858,
-            lng: 7.895982,
-            label: 'C',
-            draggable: true
-        }
+            value: '3',
+            label: 'spotkanie z celebrytą'
+        },
+        {
+            value: '4',
+            label: 'darmowe żarcie'
+        },
+        {
+            value: '4',
+            label: 'ogarnianie o co biega z włosami Szpili'
+        },
     ]
 }
 // just an interface for type safety.
-interface marker {
-    lat: number;
-    lng: number;
-    label?: string;
-    draggable: boolean;
+interface event {
+    value: string;
+    label: string;
 }
